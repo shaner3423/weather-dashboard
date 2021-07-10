@@ -33,21 +33,21 @@ function getWeather(cityName){
         currentWindElement.innerHTML = "Wind Speed: " + windValue;
         currentHumidity.innerHTML = "Humidity: " + humidValue + "%";
        
-        // //get UV Index
-        // fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}` + "&appid=" + APIKey )
-        // .then(response=> response.json())
-        // .then(data => {
+        //get UV Index
+        fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}` + "&appid=" + APIKey )
+        .then(response=> response.json())
+        .then(data => {
         
-        // var uvValue = data.current.uvi;
-        // currentUVElement.innerHTML= "UV Index: " + uvValue;
+        var uvValue = data.current.uvi;
+        currentUVElement.innerHTML= "UV Index: " + uvValue;
 
-        // if (uvValue > 0 && uvValue <= 3.5){
-        //     $('#uv-color').addClass("low");
-        // } else if (uvValue > 3.5 &&  uvValue <= 6.5){
-        //     $(`#uv-color`).addClass("moderate");
-        // } else if (uvValue > 6.5 &&  uvValue <= 10){
-        //     $(`#uv-color`).addClass("high");
-        // }
+        if (uvValue > 0 && uvValue <= 3.5){
+            $('#uv-color').addClass("low");
+        } else if (uvValue > 3.5 &&  uvValue <= 6.5){
+            $(`#uv-color`).addClass("moderate");
+        } else if (uvValue > 6.5 &&  uvValue <= 10){
+            $(`#uv-color`).addClass("high");
+        }
 
        
         // var forecastData = data.daily;
