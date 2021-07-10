@@ -50,21 +50,21 @@ function getWeather(cityName){
         }
 
        
-        // var forecastData = data.daily;
+        var forecastData = data.daily;
 
-        // for (let index = 0; index < forecastData.length; index++) {
-        //     const element = forecastData[index];
-        //     console.log(forecastData[index]);
+        for (let index = 0; index < forecastData.length; index++) {
+            const element = forecastData[index];
+            console.log(forecastData[index]);
 
-        //     // document.getElementById(`pic-${index}`).innerHTML = temp.day;
-        //     document.getElementById(`temperature-${index}`).innerHTML = temp.day;
-        //     document.getElementById(`wind-speed-${index}`).innerHTML = data.temp.day;
-        //     document.getElementById(`humidity-${index}`).innerHTML = data.humidity;
-        //     document.getElementById(`UV-index-${index}`).innerHTML = data.uvi;
+            // document.getElementById(`pic-${index}`).innerHTML = temp.day;
+            document.getElementById(`temperature-${index}`).innerHTML = temp.day;
+            document.getElementById(`wind-speed-${index}`).innerHTML = data.temp.day;
+            document.getElementById(`humidity-${index}`).innerHTML = data.humidity;
+            document.getElementById(`UV-index-${index}`).innerHTML = data.uvi;
 
                 
-        //     console.log(document.getElementById(`temperature-${index}`));
-        // }
+            console.log(document.getElementById(`temperature-${index}`));
+        }
 
      })
 
