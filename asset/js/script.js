@@ -42,25 +42,28 @@ function getWeather(cityName){
         currentUVElement.innerHTML= "UV Index: " + uvValue;
 
         if (uvValue > 0 && uvValue <= 3.5){
-            $('#uv-color').addClass("low");
+            $('#UV-index').addClass("low");
         } else if (uvValue > 3.5 &&  uvValue <= 6.5){
-            $(`#uv-color`).addClass("moderate");
+            $(`#UV-index`).addClass("moderate");
         } else if (uvValue > 6.5 &&  uvValue <= 10){
-            $(`#uv-color`).addClass("high");
+            $(`#UV-index`).addClass("high");
         }
 
        
         var forecastData = data.daily;
         // console.log(forecastData[0].temp.day)
 
-        for (let index = 0; index < forecastData.length; index++) {
+        for (let index = 1; index < forecastData.length; index++) {
             const element = forecastData[index];
             var temp = Math.round(((parseFloat(element.temp.day)-273.15)*1.8)+32) + '&deg' + 'F';
             console.log(element);
-            // var currentHour = moment.unix(data.dt).format('MMMM Do YYYY')
 
-
-            // document.getElementById(`pic-${index}`).innerHTML = element.temp.day;
+            
+            var date = moment.unix(element.dt).format('l');
+            document.getElementById(`date-${index}`).innerHTML = date;
+            //ICON IS SUPPOSED TO COME UP HERE - I can't get it to work
+            // var icon = 'http://openweathermap.org/img/wn/' + element.weather[index].icon + '@2x.png';
+            // $(`#pic-${element[i]}`).attr('src', icon);
             document.getElementById(`temperature-${index}`).innerHTML = "Temperature: " + temp;
             document.getElementById(`wind-speed-${index}`).innerHTML = "Wind: " + element.wind_speed;
             document.getElementById(`humidity-${index}`).innerHTML = "Humidity: " + element.humidity;
@@ -85,19 +88,11 @@ function saveData(){
   var newCity = document.createElement("button");
   newCity.setAttribute('id', 'newCity');
   newCity.innerHTML = storedValue; 
-
+  newCity.onclick = function (){
+    getWeather(storedValue);
+  }
   document.getElementById("cities").appendChild(newCity);
 }
-
-var history = document.getElementById("newCity");
-
-
-function citySearch () {
-    document.getElementById("newCity");
-    
-}
-
-history.onclick = citySearch();
 
 
 

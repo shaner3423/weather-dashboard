@@ -1,9 +1,52 @@
 h1 {
     text-align: center;
     margin: auto;
+    background-color: rgb(56, 56, 215);
+    color: white;
 }
 
 .search-bar h3{
   margin: auto;  
 }
+
+.previous-search h3 {
+  margin-top:20px;
+}
+
+#city-name {
+text-align: center;
+font-size: 50px;
+background:grey;
+}
+
+#date {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+.forecast-text {
+text-align: center;
+background-color: grey;
+margin-right: 85px;
+}
+
+.forecast {
+  margin: 20px;
+}
+
+.low {
+  background: green;
+}
+
+.moderate {
+  background: orange;
+}
+
+.high {
+  background: red;
+}
+
+
+
 
